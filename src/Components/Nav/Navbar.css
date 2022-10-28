@@ -1,0 +1,84 @@
+.navbar {
+    background: #00798c;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    height: 60px;
+  }
+
+.container {
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.navbar-logo {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 32px;
+    display: flex;
+    justify-self: start;
+}
+
+.navbar-logo:hover{
+    color: #edae49;
+}
+
+.nav-icon {
+    margin-top: 5px;
+    margin-right: 8px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: end;
+    list-style: none;
+    text-align: center;
+  }
+
+.nav-item {
+    margin-left: 20px;
+    margin-right: 20px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover {
+    color: #e6ebe0;
+    border-bottom: 2px solid #edae49;
+}
+
+.nav-links {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    height: 100%;
+  }
+
+  .fa-bars {
+    color: #fff;
+  }
+  
+  .menu-icon {
+    display: none;
+  }
