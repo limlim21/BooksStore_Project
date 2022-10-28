@@ -4,9 +4,9 @@ import { GiSpellBook } from "react-icons/gi";
 
 const NewNavbar = () => {
     return(
-        <div className="navbar">
+        <div className="new-navbar">
             <div>
-                <GiSpellBook/> <h1>Magic Book</h1>
+                <h1><GiSpellBook/> Magic Book</h1>
             </div>
             <div>
                 <p>Your Favorities</p>
