@@ -4,7 +4,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="footer">
-      <p>Books Store App 2022&copy;</p>
+      <p>Magic Book Store 2022&copy;</p>
     </div>
   );
 };

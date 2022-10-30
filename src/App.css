@@ -69,13 +69,42 @@
 .Home {
   min-height: 84vh;
   width: 100%;
-  display: grid;
+  /*display: grid;
   grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
+  */
 }
 
-.btn-primary{
-  background-color: #edae49;
+.Header {
+  min-height: 500px;
+  width: 100%;
+  /*display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  */
+}
+
+.card-img-overlay{
+  background-color: #9bc1bc;
+}
+
+input {
+  align-items: center;
+  padding-left: 10px;
+  margin-right: 50px;  
+}
+
+.search input {
+  outline-color: #00798c;
+  border: 0;
+  width: 580px;
+  height: 38px;
+  border-color: #9bc1bc;
+  border-radius: 20px;
+}
+
+.search button {
+  margin-left: 10px;
+  border-radius: 20px;
+  width: 120px;
 }
 
 .book-list {
@@ -103,10 +132,12 @@
   text-align: center;
 }
 
-img {
+/*img {
  width: 200px;
  height: 300px;
-}
+ display: flex;
+ align-self: flex-end;
+}*/
 
 .rating {
     display: flex;
@@ -120,4 +151,45 @@ img {
   margin-right: 10px;
 }
 
+.container{
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,0.5fr));
+  grid-gap:20px;
+  box-sizing: border-box;
+}
 
+.fav-btn{
+  border: 0ch;
+  outline: 0ch;
+  color: palevioletred;
+}
+
+.buy-btn {
+  margin: 0%;
+  padding: auto;
+  background-color: #edae49;
+}
+
+.cd-book{
+  background-color: var(--secondary-color);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 10px;
+  transition: .5s;
+  text-align: center;
+  position: relative;
+}
+
+.cd-book:hover{
+  box-shadow: 16px 24px 30px -6px rgba(212,185,150,.5);
+-webkit-box-shadow: 16px 24px 30px -6px rgba(212,185,150,.5);
+-moz-box-shadow: 16px 24px 30px -6px rgba(212,185,150,.5);
+}
+
+.cd-book p {
+  text-align: left
+}
