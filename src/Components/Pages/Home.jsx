@@ -10,13 +10,30 @@ import Booklist from "./Booklist";
 const Home = () => {
   const [search, setSearch] = useState("");
   const [bookData, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const searchBook = (evt) => {
     if (evt.key === "Enter") {
       axios
-        .get("https://example-data.draftbit.com/books?_limit=10")
+        //API book-1
+        //.get("https://example-data.draftbit.com/books?_limit=12" + search)
+
+        //API book-google
+        .get(
+          "https://www.googleapis.com/books/v1/volumes?q=" +
+            search +
+            "&key=AIzaSyCLsjHheFJXHh4NkOpKTlfYOM8orIsHLNA" +
+            "&maxResults=12"
+        )
+        //.then((res) => console.log(res.data.items))
+        //.catch((err) => console.log(err));
+        //.then((res) => setData(res.data))
         .then((res) => setData(res.data.items))
         .catch((err) => console.log(err));
     }
+  };
+
+  const Loading = () => {
+    return <>Loading....</>;
   };
 
   return (
@@ -49,14 +66,12 @@ const Home = () => {
               <hr />
             </div>
           </div>
+          {/*<div className="row justify-content-center">
+            {loading ? <Loading /> : <searchBook />}
+          </div>*/}
         </div>
         <div className="container d-grid gap-5">
-          <Book />
-          <Book />
-          <Book />
-          <Book />
-          <Book />
-          <Book />
+          <Book book={bookData} />
         </div>
       </div>
     </>

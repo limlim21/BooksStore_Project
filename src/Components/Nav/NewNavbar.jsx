@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { GiSpellBook } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { GrCart } from "react-icons/gr";
 
 const NewNavbar = () => {
   const [click, setClick] = useState(false);
@@ -21,11 +22,26 @@ const NewNavbar = () => {
               Booklist
             </Link>
           </li>
+          <li className="nav-btn cart-btn" style={{ marginRight: "15px" }}>
+            {button ? (
+              <Link to="/" className="btn-link">
+                <Button variant="light">
+                  <b>Cart</b> <GrCart />
+                </Button>
+              </Link>
+            ) : (
+              <Link to="/" className="btn-link">
+                <Button variant="outline-light" size="sm">
+                  Cart
+                </Button>
+              </Link>
+            )}
+          </li>
           <li className="nav-btn">
             {button ? (
               <Link to="/login" className="btn-link">
                 <Button variant="outline-light">
-                  <b>LOGIN</b>
+                  <b>Login</b>
                 </Button>
               </Link>
             ) : (
