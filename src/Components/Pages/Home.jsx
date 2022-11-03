@@ -67,7 +67,7 @@ const Home = () => {
             </div>
           </div>
           {/*<div className="row justify-content-center">
-            {loading ? <Loading /> : <searchBook />}
+            {loading ? <loading /> : <searchBook />}
           </div>*/}
         </div>
         <div className="container d-grid gap-5">

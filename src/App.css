@@ -69,6 +69,7 @@
 .footer{
   width: 100%;
   height: 10vh;
+  padding-top: 10px;
   background: black;
   color: white;
   display: flex;
@@ -103,7 +104,7 @@
 }
 
 .Cart{
-  min-height: 83.5vh;
+  min-height: 84vh;
   width: 100%;
   /*display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -137,7 +138,7 @@ input {
   width: 120px;
 }
 
-.book-list {
+.book-list .bookList-container{
   min-height: 84vh;
   width: 100%;
   margin-top: 40px;
@@ -246,5 +247,7 @@ input {
 
 .buttons button {
   margin-left: 10px;
+  margin-bottom: 10px;
+  
 }
 

@@ -58,76 +58,78 @@ const Booklist = () => {
     setFilter(updateList);
   };
 
-  const ShowBook = () => {
+  const ShowBook = ({}) => {
     return (
       <>
         <div className="buttons d-flex justify-content-center align-items-center mb-5">
-          <button
-            className="btn btn-outline-dark"
-            onClick={() => setFilter(books)}
-          >
-            All
-          </button>
-          <button
-            className="btn btn-outline-dark"
-            onClick={() => filterBook("Children")}
-          >
-            Children
-          </button>
-          <button
-            className="btn btn-outline-dark"
-            onClick={() => filterBook("Fantasy")}
-          >
-            Fantasy
-          </button>
-          <button
-            className="btn btn-outline-dark"
-            onClick={() => filterBook("Fiction")}
-          >
-            Fiction
-          </button>
-          <button
-            className="btn btn-outline-dark"
-            onClick={() => filterBook("Humor")}
-          >
-            Humor
-          </button>
-          <button
-            className="btn btn-outline-dark"
-            onClick={() => filterBook("Literature")}
-          >
-            Literature
-          </button>
-          <button
-            className="btn btn-outline-dark"
-            onClick={() => filterBook("Mystery")}
-          >
-            Mystery
-          </button>
-          <button
-            className="btn btn-outline-dark"
-            onClick={() => filterBook("Romance")}
-          >
-            Romance
-          </button>
-          <button
-            className="btn btn-outline-dark"
-            onClick={() => filterBook("School")}
-          >
-            School
-          </button>
-          <button
-            className="btn btn-outline-dark"
-            onClick={() => filterBook("Science")}
-          >
-            Science
-          </button>
+          <div className="">
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => setFilter(books)}
+            >
+              All
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Children")}
+            >
+              Children
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Fantasy")}
+            >
+              Fantasy
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Fiction")}
+            >
+              Fiction
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Humor")}
+            >
+              Humor
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Literature")}
+            >
+              Literature
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Mystery")}
+            >
+              Mystery
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Romance")}
+            >
+              Romance
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("School")}
+            >
+              School
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Science")}
+            >
+              Science
+            </button>
+          </div>
         </div>
         {filter.map((book) => {
           return (
             <>
-              <div key={book.id} className="d-flex justify-content-center">
-                <div className="bookList-container">
+              <div key={book.id} className="">
+                <div className="book-list">
                   <div
                     className="card col-md-3 cd-content"
                     style={{ width: "16rem" }}
@@ -140,6 +142,9 @@ const Booklist = () => {
                     <div className="card-body">
                       <p className="card-text">{book.authors}</p>
                       <h5 className="card-title">{book.title}</h5>
+                      <p className="card-text">
+                        <small>{book.genres}</small>
+                      </p>
                       <p className="card-text-price">
                         <b>IDR 50.000</b>
                       </p>
@@ -179,7 +184,7 @@ const Booklist = () => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h1 className="display-6 fw-bolder text-center">Genres Book</h1>
+              <h1 className="display-6 fw-bolder text-center">Category</h1>
               <hr />
             </div>
           </div>
