@@ -94,6 +94,22 @@
   
 }
 
+.Book-Details{
+  min-height: 79vh;
+  width: 100%;
+  /*display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  */
+}
+
+.Cart{
+  min-height: 83.5vh;
+  width: 100%;
+  /*display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  */
+}
+
 .card-img-overlay{
   background-color: #9bc1bc;
   
@@ -133,13 +149,19 @@ input {
   justify-items: center;
 }
 
+.bg-login {
+  background-color: white;
+}
+
 .login {
-  min-height: 84vh;
+  min-height: 79vh;
   width: 100%;
   display: flex;
   /*grid-template-columns: repeat(3, 1fr);*/
   justify-items: center;
   padding-top: 50px;
+  background-color: #e6ebe0be;
+  border-radius: 50px;
 }
 
 .book{
@@ -180,6 +202,16 @@ input {
   box-sizing: border-box;
 }
 
+.bookList-container{
+  margin: 0 auto;
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns:repeat(5);
+  grid-gap:20px;
+  box-sizing: border-box;
+}
+
+
 .fav-btn{
   border: 0ch;
   outline: 0ch;
@@ -215,3 +247,4 @@ input {
 .buttons button {
   margin-left: 10px;
 }
+

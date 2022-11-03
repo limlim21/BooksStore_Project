@@ -32,9 +32,9 @@ const Home = () => {
     }
   };
 
-  const Loading = () => {
-    return <>Loading....</>;
-  };
+  //const Loading = () => {
+  //  return <>Loading....</>;
+  //};
 
   return (
     <>
