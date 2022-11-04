@@ -8,14 +8,35 @@ import { AiFillStar } from "react-icons/ai";
 import { GrFavorite } from "react-icons/gr";
 import { Button } from "bootstrap";
 import Skeleton from "react-loading-skeleton";
+import { useAppContext } from "../Context/appContext";
+import { useNavigate } from "react-router-dom";
 
 const Booklist = () => {
   const [books, setBooks] = useState([]);
   const [filter, setFilter] = useState(books);
   const [loading, setLoading] = useState(false);
-  const componentMounted = true;
 
-  useEffect(() => {
+  //API googleBook
+  //const [items, setItems] = useState([]);
+  //const [filter, setFilter] = useState(items);
+
+  const { favorites, addToFavorites, removeFromFavorites } = useAppContext();
+
+  const navigate = useNavigate();
+
+  const favoritesChecker = (id) => {
+    const boolean = favorites.some((book) => book.id === id);
+    return boolean;
+  };
+
+  //const favoritesChecker = (id) => {
+  //  const boolean = favorites.some((item) => item.id === id);
+  //  return boolean;
+  //};
+
+  let componentMounted = true;
+
+  /*useEffect(() => {
     axios
       .get(API_URL)
       .then((res) => {
@@ -23,7 +44,7 @@ const Booklist = () => {
         setBooks(res.data);
       })
       .catch((err) => console.error(err));
-  }, [API_URL]);
+  }, [API_URL]);*/
 
   useEffect(() => {
     const getBooks = async () => {
@@ -54,7 +75,7 @@ const Booklist = () => {
   };
 
   const filterBook = (cat) => {
-    const updateList = books.filter((x) => x.genres === cat);
+    const updateList = books.filter((x) => x.categories === cat);
     setFilter(updateList);
   };
 
@@ -125,11 +146,11 @@ const Booklist = () => {
             </button>
           </div>
         </div>
-        {filter.map((book) => {
-          return (
-            <>
-              <div key={book.id} className="">
-                <div className="book-list">
+        <div className="bookList-container">
+          {filter.map((book) => {
+            return (
+              <>
+                <div key={book.id} className="">
                   <div
                     className="card col-md-3 cd-content"
                     style={{ width: "16rem" }}
@@ -153,19 +174,93 @@ const Booklist = () => {
                         <h6 className="rating-text">{book.rating}</h6>
                       </h5>
                       <div className="d-flex flex-row justify-content-between">
-                        <a
-                          href="/favorites"
-                          className="btn btn-outline-danger btn-count fav-btn"
+                        {favoritesChecker(book.id) ? (
+                          <button
+                            href="/favorites"
+                            className="btn btn-danger btn-count fav-btn"
+                            onClick={() => removeFromFavorites(book.id)}
+                          >
+                            <GrFavorite />
+                          </button>
+                        ) : (
+                          <button
+                            href="/favorites"
+                            className="btn btn-outline-danger btn-count fav-btn"
+                            onClick={() => addToFavorites(book)}
+                          >
+                            <GrFavorite />
+                          </button>
+                        )}
+
+                        <button
+                          className="btn btn-primary buy-btn"
+                          style={{ marginLeft: "10px" }}
+                          onClick={() => navigate(`/books/${book.id}`)}
                         >
-                          <GrFavorite />
-                        </a>
-                        <a
+                          See Details
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </>
+            );
+          })}
+        </div>
+
+        {/*{filter.map((item) => {
+          return (
+            <>
+              <div key={item.id} className="">
+                <div className="">
+                  <div
+                    className="card col-md-3 cd-content"
+                    style={{ width: "16rem" }}
+                  >
+                    <img
+                      src={item.image_url}
+                      className="card-img-top"
+                      alt="..."
+                    />
+                    <div className="card-body">
+                      <p className="card-text">{item.authors}</p>
+                      <h5 className="card-title">{item.title}</h5>
+                      <p className="card-text">
+                        <small>{item.genres}</small>
+                      </p>
+                      <p className="card-text-price">
+                        <b>IDR 50.000</b>
+                      </p>
+                      <h5 className="rating-icon d-flex flex-row justify-content-start">
+                        <AiFillStar />
+                        <h6 className="rating-text">{item.rating}</h6>
+                      </h5>
+                      <div className="d-flex flex-row justify-content-between">
+                        {favoritesChecker(item.id) ? (
+                          <button
+                            href="/favorites"
+                            className="btn btn-danger btn-count fav-btn"
+                            onClick={() => removeFromFavorites(item.id)}
+                          >
+                            <GrFavorite />
+                          </button>
+                        ) : (
+                          <button
+                            href="/favorites"
+                            className="btn btn-outline-danger btn-count fav-btn"
+                            onClick={() => addToFavorites(item)}
+                          >
+                            <GrFavorite />
+                          </button>
+                        )}
+
+                        <button
                           href="/detail/:id"
                           className="btn btn-primary buy-btn"
                           style={{ marginLeft: "10px" }}
                         >
                           See Details
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -173,14 +268,14 @@ const Booklist = () => {
               </div>
             </>
           );
-        })}
+        })}*/}
       </>
     );
   };
 
   return (
     <>
-      <div className="blist d-flex flex-column">
+      <div className="bookList-container d-flex flex-column">
         <div className="container">
           <div className="row">
             <div className="col-12">

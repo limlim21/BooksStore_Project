@@ -111,6 +111,14 @@
   */
 }
 
+.Favorites{
+  min-height: 84vh;
+  width: 100%;
+  /*display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  */
+}
+
 .card-img-overlay{
   background-color: #9bc1bc;
   
@@ -138,17 +146,6 @@ input {
   width: 120px;
 }
 
-.book-list .bookList-container{
-  min-height: 84vh;
-  width: 100%;
-  margin-top: 40px;
-  margin-left: 40px;
-  margin-bottom: 40px;
-  padding-right: 40px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  justify-items: center;
-}
 
 .bg-login {
   background-color: white;
@@ -201,17 +198,46 @@ input {
   grid-template-columns: repeat(auto-fit,minmax(200px,0.5fr));
   grid-gap:20px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.book-list{
+  min-height: 84vh;
+  width: 100%;
+  margin-top: 40px;
+  margin-left: 40px;
+  margin-bottom: 40px;
+  padding-right: 40px;
+  display: grid;
+  grid-gap:20px;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
 }
 
 .bookList-container{
   margin: 0 auto;
   margin-top: 25px;
   display: grid;
-  grid-template-columns:repeat(5);
+  grid-template-columns:repeat(5, 1fr);
   grid-gap:20px;
   box-sizing: border-box;
 }
 
+
+.favorites-list{
+  min-height: 84vh;
+  width: 100%;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+  padding-right: 40px;
+  display: grid;
+  grid-gap:20px;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+}
 
 .fav-btn{
   border: 0ch;

@@ -4,6 +4,7 @@ import Homepage from "./Components/Homepage";
 import Booklist from "./Components/Pages/Booklist";
 import Home from "./Components/Pages/Home";
 import BookDetailPageContainer from "./Containers/BookDetailPageContainer";
+import BookDetails from "./Components/Pages/BookDetails";
 import Favorites from "./Components/Pages/Favorites";
 import Login from "./Components/Pages/Login";
 import Cart from "./Components/Pages/Cart";
@@ -17,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/book" exact element={<Booklist />} />
-        <Route path="/detail/:id" exact element={<BookDetailPageContainer />} />
+        <Route path="/books/:id" exact element={<BookDetails />} />
         <Route path="/favorites" exact element={<Favorites />} />
         <Route path="/cart" exact element={<Cart />} />
         <Route path="/login" exact element={<Login />} />

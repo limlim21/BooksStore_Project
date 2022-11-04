@@ -1,4 +1,5 @@
-.home {
+
+/*.home {
     background-color: #ffffff;
     width: 100vmax;
     height: 100vh;
@@ -10,8 +11,7 @@
     flex-direction: column;
     justify-content: center;
 }
-
-/*.header {
+.header {
     background-color: #2b2c297e;
     font-family: 'Poppins', sans-serif;
     color: whitesmoke;

@@ -23,7 +23,7 @@ const NewNavbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/book" className="nav-link">
+            <Link to="/favorites" className="nav-link">
               Favorite
             </Link>
           </li>
