@@ -1,12 +1,12 @@
 import React from "react";
 import "../../App.css";
 
-const Cart = () => {
+const ReadBook = () => {
   return (
-    <div className="Cart">
+    <div className="ReadBook">
       <div className="container">
         <div className="col">
-          <h1 className="display-6 fw-bolder text-center">Cart</h1>
+          <h1 className="display-6 fw-bolder text-center">Read</h1>
           <hr />
         </div>
       </div>
@@ -14,4 +14,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default ReadBook;
