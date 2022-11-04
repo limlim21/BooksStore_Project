@@ -24,12 +24,13 @@ const BookDetails = () => {
     <>
       <div className="Book-Details">
         <div className="container d-flex justify-content-center align-items-center mt-5">
-          <div className="card mb-3" style={{ maxWidth: "800px" }}>
+          <div className="card mb-3" style={{ maxWidth: "1200px" }}>
             <div className="row g-0">
               <div className="col-md-4">
                 <img
                   src={book?.image_url}
                   className="img-fluid rounded-start"
+                  style={{ width: "800px" }}
                   alt="#"
                 />
               </div>
