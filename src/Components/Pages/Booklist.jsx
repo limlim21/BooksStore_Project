@@ -75,7 +75,13 @@ const Booklist = () => {
   };
 
   const filterBook = (cat) => {
-    const updateList = books.filter((x) => x.categories === cat);
+    const updateList = [];
+    const filterLowered = cat.toLowerCase();
+    books.forEach((book) => {
+      if (book.genres.toLowerCase().includes(filterLowered)) {
+        updateList.push(book);
+      }
+    });
     setFilter(updateList);
   };
 
