@@ -22,15 +22,20 @@ const NewNavbar = () => {
               Booklist
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/favorites" className="nav-link">
+              Favorite
+            </Link>
+          </li>
           <li className="nav-btn cart-btn" style={{ marginRight: "15px" }}>
             {button ? (
-              <Link to="/" className="btn-link">
+              <Link to="/cart" className="btn-link">
                 <Button variant="light">
                   <b>Cart</b> <GrCart />
                 </Button>
               </Link>
             ) : (
-              <Link to="/" className="btn-link">
+              <Link to="/cart" className="btn-link">
                 <Button variant="outline-light" size="sm">
                   Cart
                 </Button>

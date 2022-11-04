@@ -21,8 +21,9 @@ const Home = () => {
         .get(
           "https://www.googleapis.com/books/v1/volumes?q=" +
             search +
+            "&filter=paid-ebooks" +
             "&key=AIzaSyCLsjHheFJXHh4NkOpKTlfYOM8orIsHLNA" +
-            "&maxResults=12"
+            "&maxResults=15"
         )
         //.then((res) => console.log(res.data.items))
         //.catch((err) => console.log(err));
@@ -32,9 +33,9 @@ const Home = () => {
     }
   };
 
-  const Loading = () => {
-    return <>Loading....</>;
-  };
+  //const Loading = () => {
+  //  return <>Loading....</>;
+  //};
 
   return (
     <>
@@ -67,7 +68,7 @@ const Home = () => {
             </div>
           </div>
           {/*<div className="row justify-content-center">
-            {loading ? <Loading /> : <searchBook />}
+            {loading ? <loading /> : <searchBook />}
           </div>*/}
         </div>
         <div className="container d-grid gap-5">

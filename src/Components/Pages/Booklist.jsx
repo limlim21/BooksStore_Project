@@ -8,14 +8,35 @@ import { AiFillStar } from "react-icons/ai";
 import { GrFavorite } from "react-icons/gr";
 import { Button } from "bootstrap";
 import Skeleton from "react-loading-skeleton";
+import { useAppContext } from "../Context/appContext";
+import { useNavigate } from "react-router-dom";
 
 const Booklist = () => {
   const [books, setBooks] = useState([]);
   const [filter, setFilter] = useState(books);
   const [loading, setLoading] = useState(false);
-  const componentMounted = true;
 
-  useEffect(() => {
+  //API googleBook
+  //const [items, setItems] = useState([]);
+  //const [filter, setFilter] = useState(items);
+
+  const { favorites, addToFavorites, removeFromFavorites } = useAppContext();
+
+  const navigate = useNavigate();
+
+  const favoritesChecker = (id) => {
+    const boolean = favorites.some((book) => book.id === id);
+    return boolean;
+  };
+
+  //const favoritesChecker = (id) => {
+  //  const boolean = favorites.some((item) => item.id === id);
+  //  return boolean;
+  //};
+
+  let componentMounted = true;
+
+  /*useEffect(() => {
     axios
       .get(API_URL)
       .then((res) => {
@@ -23,10 +44,9 @@ const Booklist = () => {
         setBooks(res.data);
       })
       .catch((err) => console.error(err));
-  }, [API_URL]);
+  }, [API_URL]);*/
 
-  {
-    /*useEffect(() => {
+  useEffect(() => {
     const getBooks = async () => {
       setLoading(true);
       const response = await fetch(API_URL);
@@ -42,8 +62,7 @@ const Booklist = () => {
     };
 
     getBooks();
-  }, [API_URL]);*/
-  }
+  }, [API_URL]);
 
   const Loading = () => {
     return (
@@ -51,48 +70,230 @@ const Booklist = () => {
         <div className="col-md-3">
           <Skeleton height={350} />
         </div>
-        <div className="col-md-3">
-          <Skeleton height={350} />
-        </div>
-        <div className="col-md-3">
-          <Skeleton height={350} />
-        </div>
-        <div className="col-md-3">
-          <Skeleton height={350} />
-        </div>
       </>
     );
   };
 
-  const ShowBook = () => {
+  const filterBook = (cat) => {
+    const updateList = books.filter((x) => x.categories === cat);
+    setFilter(updateList);
+  };
+
+  const ShowBook = ({}) => {
     return (
       <>
-        <div className="buttons d-flex justify-content-center align-items-center">
-          <button
-            className="btn btn-outline-dark"
-            onClick={() => setFilter(books)}
-          >
-            All
-          </button>
-          <button className="btn btn-outline-dark">Children</button>
-          <button className="btn btn-outline-dark">Fantasy</button>
-          <button className="btn btn-outline-dark">Fiction</button>
-          <button className="btn btn-outline-dark">Humor</button>
-          <button className="btn btn-outline-dark">Literature</button>
-          <button className="btn btn-outline-dark">Mystery</button>
-          <button className="btn btn-outline-dark">Romance</button>
-          <button className="btn btn-outline-dark">School</button>
-          <button className="btn btn-outline-dark">Science</button>
+        <div className="buttons d-flex justify-content-center align-items-center mb-5">
+          <div className="">
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => setFilter(books)}
+            >
+              All
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Children")}
+            >
+              Children
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Fantasy")}
+            >
+              Fantasy
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Fiction")}
+            >
+              Fiction
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Humor")}
+            >
+              Humor
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Literature")}
+            >
+              Literature
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Mystery")}
+            >
+              Mystery
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Romance")}
+            >
+              Romance
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("School")}
+            >
+              School
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => filterBook("Science")}
+            >
+              Science
+            </button>
+          </div>
         </div>
-        {/*{filter.map((book) => {
-          return (
-            <>
-              <div key={book.id} className="book">
-                <div className="container justify-content-center">
+        <div className="bookList-container">
+          {filter.map((book) => {
+            return (
+              <>
+                <div key={book.id} className="">
                   <div
                     className="card col-md-3 cd-content"
-                    style={{ width: "18rem" }}
+                    style={{ width: "16rem" }}
                   >
+                    <img
+                      src={book.image_url}
+                      className="card-img-top"
+                      alt="..."
+                    />
+                    <div className="card-body">
+                      <p className="card-text">{book.authors}</p>
+                      <h5 className="card-title">{book.title}</h5>
+                      <p className="card-text">
+                        <small>{book.genres}</small>
+                      </p>
+                      <p className="card-text-price">
+                        <b>IDR 50.000</b>
+                      </p>
+                      <h5 className="rating-icon d-flex flex-row justify-content-start">
+                        <AiFillStar />
+                        <h6 className="rating-text">{book.rating}</h6>
+                      </h5>
+                      <div className="d-flex flex-row justify-content-between">
+                        {favoritesChecker(book.id) ? (
+                          <button
+                            href="/favorites"
+                            className="btn btn-danger btn-count fav-btn"
+                            onClick={() => removeFromFavorites(book.id)}
+                          >
+                            <GrFavorite />
+                          </button>
+                        ) : (
+                          <button
+                            href="/favorites"
+                            className="btn btn-outline-danger btn-count fav-btn"
+                            onClick={() => addToFavorites(book)}
+                          >
+                            <GrFavorite />
+                          </button>
+                        )}
+
+                        <button
+                          className="btn btn-primary buy-btn"
+                          style={{ marginLeft: "10px" }}
+                          onClick={() => navigate(`/books/${book.id}`)}
+                        >
+                          See Details
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </>
+            );
+          })}
+        </div>
+
+        {/*{filter.map((item) => {
+          return (
+            <>
+              <div key={item.id} className="">
+                <div className="">
+                  <div
+                    className="card col-md-3 cd-content"
+                    style={{ width: "16rem" }}
+                  >
+                    <img
+                      src={item.image_url}
+                      className="card-img-top"
+                      alt="..."
+                    />
+                    <div className="card-body">
+                      <p className="card-text">{item.authors}</p>
+                      <h5 className="card-title">{item.title}</h5>
+                      <p className="card-text">
+                        <small>{item.genres}</small>
+                      </p>
+                      <p className="card-text-price">
+                        <b>IDR 50.000</b>
+                      </p>
+                      <h5 className="rating-icon d-flex flex-row justify-content-start">
+                        <AiFillStar />
+                        <h6 className="rating-text">{item.rating}</h6>
+                      </h5>
+                      <div className="d-flex flex-row justify-content-between">
+                        {favoritesChecker(item.id) ? (
+                          <button
+                            href="/favorites"
+                            className="btn btn-danger btn-count fav-btn"
+                            onClick={() => removeFromFavorites(item.id)}
+                          >
+                            <GrFavorite />
+                          </button>
+                        ) : (
+                          <button
+                            href="/favorites"
+                            className="btn btn-outline-danger btn-count fav-btn"
+                            onClick={() => addToFavorites(item)}
+                          >
+                            <GrFavorite />
+                          </button>
+                        )}
+
+                        <button
+                          href="/detail/:id"
+                          className="btn btn-primary buy-btn"
+                          style={{ marginLeft: "10px" }}
+                        >
+                          See Details
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          );
+        })}*/}
+      </>
+    );
+  };
+
+  return (
+    <>
+      <div className="bookList-container d-flex flex-column">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <h1 className="display-6 fw-bolder text-center">Category</h1>
+              <hr />
+            </div>
+          </div>
+          <div className="row justify-content-center">
+            {loading ? <Loading /> : <ShowBook />}
+          </div>
+        </div>
+
+        {/*{
+          <div className="book-list">
+            {books.map((book) => (
+              <div key={book.id} className="book">
+                <div className="container row justify-content-center">
+                  <div className="card cd-content" style={{ width: "18rem" }}>
                     <img
                       src={book.image_url}
                       className="card-img-top"
@@ -127,69 +328,9 @@ const Booklist = () => {
                   </div>
                 </div>
               </div>
-            </>
-          );
-        })}*/}
-      </>
-    );
-  };
-
-  return (
-    <>
-      <div className="blist d-flex flex-column">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h1 className="display-6 fw-bolder text-center">Genres Book</h1>
-              <hr />
-            </div>
+            ))}
           </div>
-          <div className="row justify-content-center">
-            {loading ? <Loading /> : <ShowBook />}
-          </div>
-        </div>
-
-        <div className="book-list">
-          {books.map((book) => (
-            <div key={book.id} className="book">
-              <div className="container row justify-content-center">
-                <div className="card cd-content" style={{ width: "18rem" }}>
-                  <img
-                    src={book.image_url}
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <p className="card-text">{book.authors}</p>
-                    <h5 className="card-title">{book.title}</h5>
-                    <p className="card-text-price">
-                      <b>IDR 50.000</b>
-                    </p>
-                    <h5 className="rating-icon d-flex flex-row justify-content-start">
-                      <AiFillStar />
-                      <h6 className="rating-text">{book.rating}</h6>
-                    </h5>
-                    <div className="d-flex flex-row justify-content-between">
-                      <a
-                        href="/favorites"
-                        className="btn btn-outline-danger btn-count fav-btn"
-                      >
-                        <GrFavorite />
-                      </a>
-                      <a
-                        href="/detail/:id"
-                        className="btn btn-primary buy-btn"
-                        style={{ marginLeft: "10px" }}
-                      >
-                        See Details
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        }*/}
       </div>
     </>
   );
