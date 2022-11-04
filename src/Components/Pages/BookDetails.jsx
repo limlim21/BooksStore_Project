@@ -34,8 +34,8 @@ const BookDetails = () => {
                   alt="#"
                 />
               </div>
-              <div className="col-md-8">
-                <div className="card-body">
+              <div className="col-md-8 mt-2">
+                <div className="card-body" style={{ marginLeft: "10px" }}>
                   <h6 className="card-text">
                     <small className="text-muted">{book?.authors}</small>
                   </h6>
@@ -93,7 +93,9 @@ const BookDetails = () => {
                     className="d-flex flex-row justify-content-end"
                     style={{ paddingRight: "10px" }}
                   >
-                    <button className="btn btn-success">buy </button>
+                    <button className="btn btn-outline-success">
+                      Add to Cart{" "}
+                    </button>
                   </div>
                 </div>
               </div>
