@@ -3,10 +3,12 @@ import React from "react";
 import { useAppContext } from "../Context/appContext";
 import { AiFillStar } from "react-icons/ai";
 import { GrFavorite } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 
 const Favorites = () => {
   const { favorites, addToFavorites, removeFromFavorites } = useAppContext();
-  console.log("favorites are", favorites);
+
+  const navigate = useNavigate();
 
   const favoritesChecker = (id) => {
     const boolean = favorites.some((book) => book.id === id);
@@ -70,6 +72,7 @@ const Favorites = () => {
                           href="/detail/:id"
                           className="btn btn-primary buy-btn"
                           style={{ marginLeft: "10px" }}
+                          onClick={() => navigate(`/books/${book.id}`)}
                         >
                           See Details
                         </button>

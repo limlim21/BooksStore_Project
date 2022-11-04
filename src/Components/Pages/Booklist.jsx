@@ -150,7 +150,7 @@ const Booklist = () => {
           {filter.map((book) => {
             return (
               <>
-                <div key={book.id} className="">
+                <div key={book.id}>
                   <div
                     className="card col-md-3 cd-content"
                     style={{ width: "16rem" }}
@@ -158,7 +158,7 @@ const Booklist = () => {
                     <img
                       src={book.image_url}
                       className="card-img-top"
-                      alt="..."
+                      alt="#"
                     />
                     <div className="card-body">
                       <p className="card-text">{book.authors}</p>
@@ -208,7 +208,8 @@ const Booklist = () => {
           })}
         </div>
 
-        {/*{filter.map((item) => {
+        {/*API googleBook
+        {filter.map((item) => {
           return (
             <>
               <div key={item.id} className="">
