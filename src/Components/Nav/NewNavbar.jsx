@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Navbar.css";
 import { GiSpellBook } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
@@ -37,7 +38,7 @@ const NewNavbar = () => {
             ) : (
               <Link to="/books/read" className="btn-link">
                 <Button variant="outline-light" size="sm">
-                  Cart
+                  Read Book
                 </Button>
               </Link>
             )}

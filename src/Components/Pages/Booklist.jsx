@@ -151,7 +151,7 @@ const BookList = () => {
             </button>
           </div>
         </div>
-        <div className="bookList-container">
+        <div className="book-list">
           {filter.map((book) => {
             return (
               <>
