@@ -4,6 +4,7 @@ import { GiSpellBook } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { BsBookmarkCheckFill } from "react-icons/bs";
+import "./Navbar.css";
 
 const NewNavbar = () => {
   const [click, setClick] = useState(false);

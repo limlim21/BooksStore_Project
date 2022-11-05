@@ -7,10 +7,13 @@ import axios from "axios";
 import { BOOK_DETAILS_URL } from "../../API";
 import { AiFillStar } from "react-icons/ai";
 import { useAppContext } from "../Context/appContext";
+import { useNavigate } from "react-router-dom";
 
 const BookDetails = () => {
   const [book, setBook] = useState({});
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const { readBook, addToReadBook, removeFromReadBook } = useAppContext();
   const readChecker = (id) => {
@@ -56,7 +59,6 @@ const BookDetails = () => {
                   <p className="card-text">
                     <small>{book?.description}</small>
                   </p>
-
                   <div className="price-book">
                     <h6 className="card-title">
                       <b style={{ color: "black" }}> Price</b>
@@ -100,21 +102,31 @@ const BookDetails = () => {
                     className="d-flex flex-row justify-content-end"
                     style={{ paddingRight: "10px" }}
                   >
-                    {readChecker(book.id) ? (
+                    <div className="d-flex flex-row justify-content-between">
+                      {readChecker(book.id) ? (
+                        <button
+                          className="btn btn-outline-success"
+                          onClick={() => removeFromReadBook(book.id)}
+                        >
+                          Delete Book{" "}
+                        </button>
+                      ) : (
+                        <button
+                          className="btn btn-success"
+                          onClick={() => addToReadBook(book)}
+                        >
+                          Add to Read{" "}
+                        </button>
+                      )}
+
                       <button
-                        className="btn btn-outline-success"
-                        onClick={() => removeFromReadBook(book.id)}
+                        className="btn btn-primary buy-btn"
+                        style={{ marginLeft: "10px" }}
+                        onClick={() => navigate(`/book`)}
                       >
-                        Delete Book{" "}
+                        Back
                       </button>
-                    ) : (
-                      <button
-                        className="btn btn-success"
-                        onClick={() => addToReadBook(book)}
-                      >
-                        Add to Read{" "}
-                      </button>
-                    )}
+                    </div>
                   </div>
                 </div>
               </div>
