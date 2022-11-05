@@ -1,6 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Booklist from "./Components/Pages/Booklist";
+import BookList from "./Components/Pages/BookList";
 import Home from "./Components/Pages/Home";
 import BookDetails from "./Components/Pages/BookDetails";
 import Favorites from "./Components/Pages/Favorites";
@@ -15,7 +15,7 @@ function App() {
       <NewNavbar />
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/book" exact element={<Booklist />} />
+        <Route path="/book" exact element={<BookList />} />
         <Route path="/books/:id" exact element={<BookDetails />} />
         <Route path="/favorites" exact element={<Favorites />} />
         <Route path="/books/read" exact element={<ReadBook />} />
