@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import '../App';
+import "./Navbar.css";
 import { GiSpellBook } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";

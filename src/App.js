@@ -1,6 +1,5 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Homepage from "./Components/Homepage";
 import Booklist from "./Components/Pages/Booklist";
 import Home from "./Components/Pages/Home";
 import BookDetails from "./Components/Pages/BookDetails";
