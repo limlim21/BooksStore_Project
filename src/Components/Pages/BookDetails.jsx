@@ -13,8 +13,6 @@ const BookDetails = () => {
   const [book, setBook] = useState({});
   const { id } = useParams();
 
-  const navigate = useNavigate();
-
   const { readBook, addToReadBook, removeFromReadBook } = useAppContext();
   const readChecker = (id) => {
     const boolean = readBook.some((book) => book.id === id);
@@ -111,9 +109,8 @@ const BookDetails = () => {
                       </button>
                     ) : (
                       <button
-                        className="btn btn-primary buy-btn"
-                        style={{ marginLeft: "10px" }}
-                        onClick={() => navigate(`/book`)}
+                        className="btn btn-success"
+                        onClick={() => addToReadBook(book)}
                       >
                         Add to Read
                       </button>
