@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import Homepage from "./Components/Homepage";
 import Booklist from "./Components/Pages/Booklist";
 import Home from "./Components/Pages/Home";
-import BookDetailPageContainer from "./Containers/BookDetailPageContainer";
 import BookDetails from "./Components/Pages/BookDetails";
 import Favorites from "./Components/Pages/Favorites";
 import Login from "./Components/Pages/Login";

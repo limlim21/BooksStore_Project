@@ -84,9 +84,12 @@ const Favorites = () => {
             </div>
           ))
         ) : (
-          <h2 className="d-flex justify-content-center">
-            You don't have any favorite books yet!
-          </h2>
+          <div className="fav-msg ">
+            <img src="/images/book.jpg" alt="" />
+            <h2 className="d-flex flex-column justify-content-center">
+              You don't have any favorite books yet!
+            </h2>
+          </div>
         )}
       </div>
     </div>

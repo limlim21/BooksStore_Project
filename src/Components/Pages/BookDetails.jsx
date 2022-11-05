@@ -55,7 +55,7 @@ const BookDetails = () => {
                       <b style={{ color: "black" }}> Price</b>
                     </h6>
                     <h5 className="card-text">
-                      <small>IDR 50.000</small>
+                      <small>Today It's FREE!</small>
                     </h5>
                   </div>
 
@@ -94,7 +94,7 @@ const BookDetails = () => {
                     style={{ paddingRight: "10px" }}
                   >
                     <button className="btn btn-outline-success">
-                      Add to Cart{" "}
+                      Add to Read{" "}
                     </button>
                   </div>
                 </div>

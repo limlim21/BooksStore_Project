@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { GiSpellBook } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { SlBookOpen } from "react-icons/sl";
+import { BsBookmarkCheckFill } from "react-icons/bs";
 
 const NewNavbar = () => {
   const [click, setClick] = useState(false);
@@ -31,7 +31,7 @@ const NewNavbar = () => {
             {button ? (
               <Link to="/book/read" className="btn-link">
                 <Button variant="light">
-                  <b>Read Book</b> <SlBookOpen />
+                  <b>Read Book</b> <BsBookmarkCheckFill />
                 </Button>
               </Link>
             ) : (

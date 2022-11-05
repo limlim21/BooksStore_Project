@@ -23,8 +23,6 @@
   outline: gray dashed 1px;
   box-sizing: border-box;
   box-shadow: gray 0px 6px 10px 0px;
-
-
 }
 
 .footer{
@@ -44,29 +42,21 @@
   /*display: grid;
   grid-template-columns: repeat(2, 1fr);
   */
-  
 }
 
 .Header {
   min-height: 500px;
   width: 100%;
-  /*display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  */
-  
 }
 
 .Book-Details{
   min-height: 79vh;
-  width: 100%;
-  /*display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  */
+  width: 100%;  
 }
 
 .price-book{
-  color: #003D5B;
-  border: 1.5px solid #00b2ca;
+  color: #035b00;
+  border: 1.5px solid #1eca00;
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 10px;
@@ -83,21 +73,22 @@
 
 .Favorites{
   min-height: 84vh;
-  width: 100%;
-  /*display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  */
+  width: 100%;  
 }
 
 .card-img-overlay{
-  background-color: #9bc1bc;
-  
+  /*background-color: #9bc1bc;
+  margin-left: 100px;*/
+  text-align: center;
 }
 
+.card-img-bg{
+  height: 800px;
+}
 
 input {
   align-items: center;
-  padding-left: 10px;
+  padding-left: 20px;
   margin-right: 50px;  
 }
 
@@ -114,8 +105,9 @@ input {
   margin-left: 10px;
   border-radius: 20px;
   width: 120px;
+  background-color: #ffb536;
+  border-color: #ffb536;
 }
-
 
 .bg-login {
   background-color: white;
@@ -125,7 +117,6 @@ input {
   min-height: 79vh;
   width: 100%;
   display: flex;
-  /*grid-template-columns: repeat(3, 1fr);*/
   justify-items: center;
   padding-top: 50px;
   background-color: #e6ebe0be;
@@ -136,12 +127,7 @@ input {
   text-align: center;
 }
 
-/*img {
- width: 200px;
- height: 300px;
- display: flex;
- align-self: flex-end;
-}*/
+
 
 .rating {
     display: flex;
@@ -162,7 +148,7 @@ input {
 .container{
   width: 65%;
   margin: 0 auto;
-  margin-top: 25px;
+  margin-top: 30px;
   margin-bottom: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(200px,0.5fr));
@@ -187,14 +173,12 @@ input {
 }
 
 .bookList-container{
-  margin: 0 auto;
-  margin-top: 25px;
+  margin: 0 auto; 
   display: grid;
   grid-template-columns:repeat(5, 1fr);
   grid-gap:20px;
   box-sizing: border-box;
 }
-
 
 .favorites-list{
   min-height: 84vh;
@@ -207,6 +191,11 @@ input {
   grid-gap:20px;
   grid-template-columns: repeat(5, 1fr);
   justify-items: center;
+}
+
+.fav-msg 
+  img{
+  height: 360px;
 }
 
 .fav-btn{
@@ -243,7 +232,6 @@ input {
 
 .buttons button {
   margin-left: 10px;
-  margin-bottom: 10px;
-  
+  margin-bottom: 10px; 
 }
 
