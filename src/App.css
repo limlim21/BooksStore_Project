@@ -194,6 +194,7 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: start;
+  margin-left: 430px;
 }
 
 .fav-msg img{
@@ -201,7 +202,7 @@ input {
 }
 
 .fav-msg h2{
-text-align: center;
+  text-align: center;
 
 }
 

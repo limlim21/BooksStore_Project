@@ -29,13 +29,13 @@ const NewNavbar = () => {
           </li>
           <li className="nav-btn cart-btn" style={{ marginRight: "15px" }}>
             {button ? (
-              <Link to="/book/read" className="btn-link">
+              <Link to="/books/read" className="btn-link">
                 <Button variant="light">
                   <b>Read Book</b> <BsBookmarkCheckFill />
                 </Button>
               </Link>
             ) : (
-              <Link to="/book/read" className="btn-link">
+              <Link to="/books/read" className="btn-link">
                 <Button variant="outline-light" size="sm">
                   Cart
                 </Button>
