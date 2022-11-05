@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import '../App';
+import "./Navbar.css";
 import { GiSpellBook } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
@@ -29,15 +29,15 @@ const NewNavbar = () => {
           </li>
           <li className="nav-btn cart-btn" style={{ marginRight: "15px" }}>
             {button ? (
-              <Link to="/book/read" className="btn-link">
+              <Link to="/books/read" className="btn-link">
                 <Button variant="light">
                   <b>Read Book</b> <BsBookmarkCheckFill />
                 </Button>
               </Link>
             ) : (
-              <Link to="/book/read" className="btn-link">
+              <Link to="/books/read" className="btn-link">
                 <Button variant="outline-light" size="sm">
-                  Cart
+                  Read Book
                 </Button>
               </Link>
             )}

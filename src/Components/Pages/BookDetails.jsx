@@ -6,10 +6,17 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BOOK_DETAILS_URL } from "../../API";
 import { AiFillStar } from "react-icons/ai";
+import { useAppContext } from "../Context/appContext";
 
 const BookDetails = () => {
   const [book, setBook] = useState({});
   const { id } = useParams();
+
+  const { readBook, addToReadBook, removeFromReadBook } = useAppContext();
+  const readChecker = (id) => {
+    const boolean = readBook.some((book) => book.id === id);
+    return boolean;
+  };
 
   useEffect(() => {
     axios
@@ -93,9 +100,21 @@ const BookDetails = () => {
                     className="d-flex flex-row justify-content-end"
                     style={{ paddingRight: "10px" }}
                   >
-                    <button className="btn btn-outline-success">
-                      Add to Read{" "}
-                    </button>
+                    {readChecker(book.id) ? (
+                      <button
+                        className="btn btn-outline-success"
+                        onClick={() => removeFromReadBook(book.id)}
+                      >
+                        Delete Book{" "}
+                      </button>
+                    ) : (
+                      <button
+                        className="btn btn-success"
+                        onClick={() => addToReadBook(book)}
+                      >
+                        Add to Read{" "}
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
