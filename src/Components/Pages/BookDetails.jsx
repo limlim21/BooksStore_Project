@@ -64,7 +64,7 @@ const BookDetails = () => {
                       <b style={{ color: "black" }}> Price</b>
                     </h6>
                     <h5 className="card-text">
-                      <small>Today It's FREE!</small>
+                      <small>Today, It's FREE!</small>
                     </h5>
                   </div>
 
@@ -102,29 +102,22 @@ const BookDetails = () => {
                     className="d-flex flex-row justify-content-end"
                     style={{ paddingRight: "10px" }}
                   >
-                    <div className="d-flex flex-row justify-content-between">
-                      {readChecker(book.id) ? (
-                        <button
-                          className="btn btn-outline-success"
-                          onClick={() => removeFromReadBook(book.id)}
-                        >
-                          Delete Book{" "}
-                        </button>
-                      ) : (
-                        <button
-                          className="btn btn-success"
-                          onClick={() => addToReadBook(book)}
-                        >
-                          Add to Read{" "}
-                        </button>
-                      )}
+
+                    {readChecker(book.id) ? (
+                      <button
+                        className="btn btn-outline-success"
+                        onClick={() => removeFromReadBook(book.id)}
+                      >
+                        Delete Book
+                      </button>
+                    ) : (
 
                       <button
                         className="btn btn-primary buy-btn"
                         style={{ marginLeft: "10px" }}
                         onClick={() => navigate(`/book`)}
                       >
-                        Back
+                        Add to Read
                       </button>
                     </div>
                   </div>
