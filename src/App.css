@@ -1,38 +1,254 @@
-.App {
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.new-navbar{
+  width: 100%;
+  height: 65px;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  position: sticky;
+  transition: all 0s ease 0s;
+  outline: gray solid 0.5px;
+  box-sizing: border-box;
+  box-shadow: rgb(179, 179, 179) 0px 4px 8px 0px;
+}
+
+.footer{
+  width: 100%;
+  height: 14vh;
+  padding-top: 10px;
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Home {
+  min-height: 84vh;
+  width: 100%;
+  /*display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  */
+}
+
+.Header {
+  min-height: 500px;
+  width: 100%;
+}
+
+.Book-Details{
+  min-height: 79vh;
+  width: 100%;  
+}
+
+.price-book{
+  color: #035b00;
+  border: 1.5px solid #1eca00;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 200px;
+}
+
+.ReadBook{
+  min-height: 84vh;
+  width: 100%;
+  /*display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  */
+}
+
+.Favorites{
+  min-height: 84vh;
+  width: 100%;  
+}
+
+.card-img-overlay{
+  /*background-color: #9bc1bc;
+  margin-left: 100px;*/
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card-img-bg{
+  height: 800px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input {
+  align-items: center;
+  padding-left: 20px;
+  margin-right: 50px;  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search input {
+  outline-color: #ffb536;
+  border: 0;
+  width: 580px;
+  height: 38px;
+  border-color: #9bc1bc;
+  border-radius: 20px;
+}
+
+.search button {
+  margin-left: 10px;
+  border-radius: 20px;
+  width: 120px;
+  background-color: #ffb536;
+  border-color: #ffb536;
+}
+
+.bg-login {
+  background-color: white;
+}
+
+.login {
+  min-height: 79vh;
+  width: 100%;
+  display: flex;
+  justify-items: center;
+  padding-top: 50px;
+  background-color: #e6ebe0be;
+  border-radius: 50px;
+}
+
+.book{
+  text-align: center;
+}
+
+
+.rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.rating-icon {
+  color: #f5b247;
+}
+
+.rating-text {
+  color: black;
+  margin-left: 5px;
+}
+
+
+.container{
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,0.5fr));
+  grid-gap:20px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.book-list{
+  min-height: 84vh;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-right: 40px;
+  display: grid;
+  grid-gap:20px;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bookList-container{
+  margin: 0 auto; 
+  display: grid;
+  grid-template-columns:repeat(5, 1fr);
+  grid-gap:20px;
+  box-sizing: border-box;
 }
+
+.favorites-list{
+  min-height: 84vh;
+  width: 100%;
+  margin-top: 20px; 
+  margin-bottom: 40px;
+  display: grid;
+  grid-gap:20px;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.read-list{
+  min-height: 84vh;
+  width: 100%;
+  margin-top: 10px; 
+  margin-bottom: 10px;
+  display: grid;
+  grid-gap:10px;
+  grid-template-rows: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.fav-msg {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.fav-msg img{
+  height: 300px;
+}
+
+.fav-msg h2{
+  text-align: center;
+
+}
+
+.fav-btn{
+  border: 0ch;
+  outline: 0ch;
+  color: palevioletred;
+}
+
+.buy-btn {
+  margin: 0%;
+  padding: auto;
+  background-color: #edae49;
+}
+
+.cd-content{
+  background-color: var(--secondary-color);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 10px;
+  transition: .1s;
+  text-align: left;
+  position: relative;
+}
+
+.cd-content:hover{
+  box-shadow: 16px 24px 30px -6px rgba(212,185,150,.5);
+-webkit-box-shadow: 16px 24px 30px -6px rgba(212,185,150,.5);
+-moz-box-shadow: 16px 24px 30px -6px rgba(212,185,150,.5);
+}
+
+.card-text-price{
+  color: #00798cff;
+}
+
+.buttons button {
+  margin-left: 10px;
+  margin-bottom: 10px; 
+}
+
