@@ -102,7 +102,6 @@ const BookDetails = () => {
                     className="d-flex flex-row justify-content-end"
                     style={{ paddingRight: "10px" }}
                   >
-
                     {readChecker(book.id) ? (
                       <button
                         className="btn btn-outline-success"
@@ -111,7 +110,6 @@ const BookDetails = () => {
                         Delete Book
                       </button>
                     ) : (
-
                       <button
                         className="btn btn-primary buy-btn"
                         style={{ marginLeft: "10px" }}
@@ -119,7 +117,7 @@ const BookDetails = () => {
                       >
                         Add to Read
                       </button>
-                    </div>
+                    )}
                   </div>
                 </div>
               </div>
