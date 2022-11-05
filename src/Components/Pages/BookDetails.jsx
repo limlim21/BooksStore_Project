@@ -94,7 +94,7 @@ const BookDetails = () => {
                     style={{ paddingRight: "10px" }}
                   >
                     <button className="btn btn-outline-success">
-                      Add to Read{" "}
+                      Add to Read
                     </button>
                   </div>
                 </div>

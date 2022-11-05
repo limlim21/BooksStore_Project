@@ -10,7 +10,7 @@ import Skeleton from "react-loading-skeleton";
 import { useAppContext } from "../Context/appContext";
 import { useNavigate } from "react-router-dom";
 
-const Booklist = () => {
+const BookList = () => {
   const [books, setBooks] = useState([]);
   const [filter, setFilter] = useState(books);
   const [loading, setLoading] = useState(false);
@@ -298,4 +298,4 @@ const Booklist = () => {
   );
 };
 
-export default Booklist;
+export default BookList;
