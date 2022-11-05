@@ -6,7 +6,7 @@ import Book from "../Book";
 const Home = () => {
   const [search, setSearch] = useState("");
   const [bookData, setData] = useState([]);
-  //const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const searchBook = (evt) => {
     if (evt.key === "Enter") {
@@ -28,9 +28,9 @@ const Home = () => {
     }
   };
 
-  //const Loading = () => {
-  //  return <>Loading....</>;
-  //};
+  const Loading = () => {
+    return <>Loading....</>;
+  };
 
   return (
     <>
@@ -63,9 +63,9 @@ const Home = () => {
               <hr />
             </div>
           </div>
-          {/*<div className="row justify-content-center">
+          <div className="row justify-content-center">
             {loading ? <loading /> : <searchBook />}
-          </div>*/}
+          </div>
         </div>
         <div className="container d-grid gap-5">
           <Book book={bookData} />
