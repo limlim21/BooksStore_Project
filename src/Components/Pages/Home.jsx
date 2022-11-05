@@ -41,7 +41,7 @@ const Home = () => {
             <h5 className="card-title display-3 fw-bolder mb-0">
               NEW BOOK ARRIVALS
             </h5>
-            <p className="card-text lead fs-2">FIND YOUR BOOK HERE !</p>
+            <p className="card-text lead fs-2">FIND YOUR BOOK HERE !!</p>
             <div className="search">
               <input
                 type="text"
