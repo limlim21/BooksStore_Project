@@ -18,7 +18,7 @@ function App() {
         <Route path="/book" exact element={<BookList />} />
         <Route path="/books/:id" exact element={<BookDetails />} />
         <Route path="/favorites" exact element={<Favorites />} />
-        <Route path="/read" exact element={<ReadBook />} />
+        <Route path="/books/read" exact element={<ReadBook />} />
         <Route path="/login" exact element={<Login />} />
       </Routes>
       <Footer />

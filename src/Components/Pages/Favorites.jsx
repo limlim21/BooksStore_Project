@@ -4,7 +4,6 @@ import { AiFillStar } from "react-icons/ai";
 import { GrFavorite } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../Context/appContext";
-//import { GlobalContext } from "../../Context/GlobalState";
 
 const Favorites = () => {
   const { favorites, addToFavorites, removeFromFavorites } = useAppContext();
