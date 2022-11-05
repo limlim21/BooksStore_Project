@@ -62,7 +62,7 @@ const BookDetails = () => {
                       <b style={{ color: "black" }}> Price</b>
                     </h6>
                     <h5 className="card-text">
-                      <small>Today It's FREE!</small>
+                      <small>Today, It's FREE!</small>
                     </h5>
                   </div>
 
@@ -105,14 +105,14 @@ const BookDetails = () => {
                         className="btn btn-outline-success"
                         onClick={() => removeFromReadBook(book.id)}
                       >
-                        Delete Book{" "}
+                        Delete Book
                       </button>
                     ) : (
                       <button
                         className="btn btn-success"
                         onClick={() => addToReadBook(book)}
                       >
-                        Add to Read{" "}
+                        Add to Read
                       </button>
                     )}
                   </div>

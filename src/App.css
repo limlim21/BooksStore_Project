@@ -189,11 +189,21 @@ input {
   justify-items: center;
 }
 
+.read-list{
+  min-height: 84vh;
+  width: 100%;
+  margin-top: 10px; 
+  margin-bottom: 10px;
+  display: grid;
+  grid-gap:10px;
+  grid-template-rows: repeat(4, 1fr);
+  justify-items: center;
+}
+
 .fav-msg {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  margin-left: 430px;
 }
 
 .fav-msg img{

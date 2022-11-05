@@ -16,79 +16,82 @@ const Favorites = () => {
   };
 
   return (
-    <div className="container">
-      <div className="col">
-        <h1 className="display-6 fw-bolder text-center">Your Fav!</h1>
-        <hr />
-      </div>
-      <div className="favorites-list">
-        {favorites.length > 0 ? (
-          favorites.map((book) => (
-            <div className="">
-              <div key={book.id} className="">
-                <div className="">
-                  <div
-                    className="card col-md-3 cd-content"
-                    style={{ width: "16rem" }}
-                  >
-                    <img
-                      src={book.image_url}
-                      className="card-img-top"
-                      alt="..."
-                    />
-                    <div className="card-body">
-                      <p className="card-text">{book.authors}</p>
-                      <h5 className="card-title">{book.title}</h5>
-                      <p className="card-text">
-                        <small>{book.genres}</small>
-                      </p>
-                      <p className="card-text-price">
-                        <b>IDR 50.000</b>
-                      </p>
-                      <h5 className="rating-icon d-flex flex-row justify-content-start">
-                        <AiFillStar />
-                        <h6 className="rating-text">{book.rating}</h6>
-                      </h5>
-                      <div className="d-flex flex-row justify-content-between">
-                        {favoritesChecker(book.id) ? (
-                          <button
-                            href="/favorites"
-                            className="btn btn-danger btn-count fav-btn"
-                            onClick={() => removeFromFavorites(book.id)}
-                          >
-                            <GrFavorite />
-                          </button>
-                        ) : (
-                          <button
-                            href="/favorites"
-                            className="btn btn-outline-danger btn-count fav-btn"
-                            onClick={() => addToFavorites(book)}
-                          >
-                            <GrFavorite />
-                          </button>
-                        )}
+    <div className="Favorites">
+      <div className="container">
+        <div className="col">
+          <h1 className="display-6 fw-bolder text-center">Your Fav!</h1>
+          <hr />
+        </div>
+        <div className="favorites-list">
+          {favorites.length > 0 ? (
+            favorites.map((book) => (
+              <div className="">
+                <div key={book.id} className="">
+                  <div className="">
+                    <div
+                      className="card col-md-3 cd-content"
+                      style={{ width: "16rem" }}
+                    >
+                      <img
+                        src={book.image_url}
+                        className="card-img-top"
+                        alt="..."
+                      />
 
-                        <button
-                          href="/detail/:id"
-                          className="btn btn-primary buy-btn"
-                          style={{ marginLeft: "10px" }}
-                          onClick={() => navigate(`/books/${book.id}`)}
-                        >
-                          See Details
-                        </button>
+                      <div className="card-body">
+                        <p className="card-text">{book.authors}</p>
+                        <h5 className="card-title">{book.title}</h5>
+                        <p className="card-text">
+                          <small>{book.genres}</small>
+                        </p>
+                        <p className="card-text-price">
+                          <b>IDR 50.000</b>
+                        </p>
+                        <h5 className="rating-icon d-flex flex-row justify-content-start">
+                          <AiFillStar />
+                          <h6 className="rating-text">{book.rating}</h6>
+                        </h5>
+                        <div className="d-flex flex-row justify-content-between">
+                          {favoritesChecker(book.id) ? (
+                            <button
+                              href="/favorites"
+                              className="btn btn-danger btn-count fav-btn"
+                              onClick={() => removeFromFavorites(book.id)}
+                            >
+                              <GrFavorite />
+                            </button>
+                          ) : (
+                            <button
+                              href="/favorites"
+                              className="btn btn-outline-danger btn-count fav-btn"
+                              onClick={() => addToFavorites(book)}
+                            >
+                              <GrFavorite />
+                            </button>
+                          )}
+
+                          <button
+                            href="/detail/:id"
+                            className="btn btn-primary buy-btn"
+                            style={{ marginLeft: "10px" }}
+                            onClick={() => navigate(`/books/${book.id}`)}
+                          >
+                            See Details
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+            ))
+          ) : (
+            <div className="fav-msg" style={{ marginLeft: "440px" }}>
+              <img src="/images/book.jpg" alt="" />
+              <h2>You don't have any favorite books yet!</h2>
             </div>
-          ))
-        ) : (
-          <div className="fav-msg">
-            <img src="/images/book.jpg" alt="" />
-            <h2>You don't have any favorite books yet!</h2>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

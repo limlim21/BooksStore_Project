@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { GiSpellBook } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { BsBookmarkCheckFill } from "react-icons/bs";
+import { BsCart4 } from "react-icons/bs";
 
 const NewNavbar = () => {
   const [click, setClick] = useState(false);
@@ -31,13 +31,13 @@ const NewNavbar = () => {
             {button ? (
               <Link to="/books/read" className="btn-link">
                 <Button variant="light">
-                  <b>Read Book</b> <BsBookmarkCheckFill />
+                  <b>Cart</b> <BsCart4 />
                 </Button>
               </Link>
             ) : (
               <Link to="/books/read" className="btn-link">
                 <Button variant="outline-light" size="sm">
-                  Read Book
+                  Cart
                 </Button>
               </Link>
             )}
