@@ -35,7 +35,7 @@ const NewNavbar = () => {
                 </Button>
               </Link>
             ) : (
-              <Link to="/book/read" className="btn-link">
+              <Link to="/books/read" className="btn-link">
                 <Button variant="outline-light" size="sm">
                   Cart
                 </Button>
