@@ -6,7 +6,6 @@ import axios from "axios";
 import { API_URL } from "../../API";
 import { AiFillStar } from "react-icons/ai";
 import { GrFavorite } from "react-icons/gr";
-import { Button } from "bootstrap";
 import Skeleton from "react-loading-skeleton";
 import { useAppContext } from "../Context/appContext";
 import { useNavigate } from "react-router-dom";
@@ -75,7 +74,13 @@ const Booklist = () => {
   };
 
   const filterBook = (cat) => {
-    const updateList = books.filter((x) => x.categories === cat);
+    const updateList = [];
+    const filterLowered = cat.toLowerCase();
+    books.forEach((book) => {
+      if (book.genres.toLowerCase().includes(filterLowered)) {
+        updateList.push(book);
+      }
+    });
     setFilter(updateList);
   };
 
@@ -150,7 +155,7 @@ const Booklist = () => {
           {filter.map((book) => {
             return (
               <>
-                <div key={book.id} className="">
+                <div key={book.id}>
                   <div
                     className="card col-md-3 cd-content"
                     style={{ width: "16rem" }}
@@ -158,7 +163,7 @@ const Booklist = () => {
                     <img
                       src={book.image_url}
                       className="card-img-top"
-                      alt="..."
+                      alt="#"
                     />
                     <div className="card-body">
                       <p className="card-text">{book.authors}</p>
@@ -208,7 +213,8 @@ const Booklist = () => {
           })}
         </div>
 
-        {/*{filter.map((item) => {
+        {/*API googleBook
+        {filter.map((item) => {
           return (
             <>
               <div key={item.id} className="">
@@ -287,50 +293,6 @@ const Booklist = () => {
             {loading ? <Loading /> : <ShowBook />}
           </div>
         </div>
-
-        {/*{
-          <div className="book-list">
-            {books.map((book) => (
-              <div key={book.id} className="book">
-                <div className="container row justify-content-center">
-                  <div className="card cd-content" style={{ width: "18rem" }}>
-                    <img
-                      src={book.image_url}
-                      className="card-img-top"
-                      alt="..."
-                    />
-                    <div className="card-body">
-                      <p className="card-text">{book.authors}</p>
-                      <h5 className="card-title">{book.title}</h5>
-                      <p className="card-text-price">
-                        <b>IDR 50.000</b>
-                      </p>
-                      <h5 className="rating-icon d-flex flex-row justify-content-start">
-                        <AiFillStar />
-                        <h6 className="rating-text">{book.rating}</h6>
-                      </h5>
-                      <div className="d-flex flex-row justify-content-between">
-                        <a
-                          href="/favorites"
-                          className="btn btn-outline-danger btn-count fav-btn"
-                        >
-                          <GrFavorite />
-                        </a>
-                        <a
-                          href="/detail/:id"
-                          className="btn btn-primary buy-btn"
-                          style={{ marginLeft: "10px" }}
-                        >
-                          See Details
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        }*/}
       </div>
     </>
   );

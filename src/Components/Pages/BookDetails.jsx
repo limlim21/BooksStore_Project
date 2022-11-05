@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BOOK_DETAILS_URL } from "../../API";
+import { AiFillStar } from "react-icons/ai";
 
 const BookDetails = () => {
   const [book, setBook] = useState({});
@@ -22,21 +23,19 @@ const BookDetails = () => {
   return (
     <>
       <div className="Book-Details">
-        <div className="container text-center mt-5">
-          <h1></h1>
-        </div>
         <div className="container d-flex justify-content-center align-items-center mt-5">
-          <div className="card mb-3" style={{ maxWidth: "800px" }}>
+          <div className="card mb-3" style={{ maxWidth: "1200px" }}>
             <div className="row g-0">
               <div className="col-md-4">
                 <img
                   src={book?.image_url}
                   className="img-fluid rounded-start"
+                  style={{ width: "800px" }}
                   alt="#"
                 />
               </div>
-              <div className="col-md-8">
-                <div className="card-body">
+              <div className="col-md-8 mt-2">
+                <div className="card-body" style={{ marginLeft: "10px" }}>
                   <h6 className="card-text">
                     <small className="text-muted">{book?.authors}</small>
                   </h6>
@@ -50,7 +49,22 @@ const BookDetails = () => {
                   <p className="card-text">
                     <small>{book?.description}</small>
                   </p>
-                  <br />
+
+                  <div className="price-book">
+                    <h6 className="card-title">
+                      <b style={{ color: "black" }}> Price</b>
+                    </h6>
+                    <h5 className="card-text">
+                      <small>Today It's FREE!</small>
+                    </h5>
+                  </div>
+
+                  <p className="card-title">
+                    <b> Genres</b>
+                  </p>
+                  <p className="card-text">
+                    <small>{book?.genres}</small>
+                  </p>
                   <p className="card-title">
                     <b>Detail</b>
                   </p>
@@ -64,22 +78,24 @@ const BookDetails = () => {
                       <small>-</small>
                     </p>
                     <p className="col card-title d-flex flex-column">
-                      <small>Date of issue</small>
-                      <small>-</small>
+                      <small>Rating</small>
+                      <small>
+                        <AiFillStar className="rating-icon" />
+                        {book?.rating} / 5
+                      </small>
                     </p>
-                    <p className="col card-title d-flex flex-column">
-                      <small>ISBN</small>
-                      <small>-</small>
-                    </p>
-
                     <p className="col card-title d-flex flex-column">
                       <small>Language</small>
-                      <small>-</small>
+                      <small>English</small>
                     </p>
                   </p>
-                  <div className="d-flex flex-row justify-content-between">
-                    <button className="btn btn-outline-danger">favorite</button>
-                    <button className="btn btn-success">buy</button>
+                  <div
+                    className="d-flex flex-row justify-content-end"
+                    style={{ paddingRight: "10px" }}
+                  >
+                    <button className="btn btn-outline-success">
+                      Add to Read{" "}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -87,75 +103,6 @@ const BookDetails = () => {
           </div>
         </div>
       </div>
-      ;
-      {/*<div className="Book-Details">
-        <div className="container text-center mt-5">
-          <h1>Detail Title Book</h1>
-        </div>
-        <div className="container d-flex justify-content-center align-items-center mt-5">
-          <div className="card mb-3" style={{ maxWidth: "800px" }}>
-            <div className="row g-0">
-              <div className="col-md-4">
-                <img src="..." className="img-fluid rounded-start" alt="..." />
-              </div>
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h6 className="card-text">
-                    <small className="text-muted">Authors Name</small>
-                  </h6>
-                  <h5 className="card-title">
-                    <b>Title Book 999</b>
-                  </h5>
-                  <hr />
-                  <p className="card-title">
-                    <b> Book Description</b>
-                  </p>
-                  <p className="card-text">
-                    <small>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Exercitationem, iure veritatis fugit dolore velit esse id,
-                      ex consectetur quis officia pariatur minima blanditiis,
-                      perferendis assumenda voluptatibus? Quos error sequi
-                      minima.
-                    </small>
-                  </p>
-                  <br />
-                  <p className="card-title">
-                    <b>Detail</b>
-                  </p>
-                  <p className="row row-cols-2">
-                    <p className="col card-title d-flex flex-column">
-                      <small>Number of pages </small>
-                      <small>-</small>
-                    </p>
-                    <p className="col card-title d-flex flex-column">
-                      <small>Publisher </small>
-                      <small>-</small>
-                    </p>
-                    <p className="col card-title d-flex flex-column">
-                      <small>Date of issue </small>
-                      <small>-</small>
-                    </p>
-                    <p className="col card-title d-flex flex-column">
-                      <small>ISBN</small>
-                      <small>-</small>
-                    </p>
-
-                    <p className="col card-title d-flex flex-column">
-                      <small>Language</small>
-                      <small>-</small>
-                    </p>
-                  </p>
-                  <div className="d-flex flex-row justify-content-between">
-                    <button className="btn btn-outline-danger">favorite</button>
-                    <button className="btn btn-success">buy</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>*/}
     </>
   );
 };

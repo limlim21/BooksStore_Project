@@ -3,12 +3,11 @@ import "../../src/App.css";
 import { GrFavorite } from "react-icons/gr";
 import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 //API Book-Google
 
 const Book = ({ book }) => {
-  console.log(book);
-
   return (
     <>
       {book.map((item) => {
@@ -42,7 +41,7 @@ const Book = ({ book }) => {
                       >
                         <GrFavorite />
                       </a>
-                      <Link to="detail/:id" className="btn btn-primary buy-btn">
+                      <Link className="btn btn-primary buy-btn">
                         See Details
                       </Link>
                     </div>
@@ -61,6 +60,13 @@ const Book = ({ book }) => {
 /*
 const Book = ({ book }) => {
   console.log(book);
+  const { favorites, addToFavorites, removeFromFavorites } = useAppContext();
+  const navigate = useNavigate();
+
+  const favoritesChecker = (id) => {
+    const boolean = favorites.some((book) => book.id === id);
+    return boolean;
+  };
   return (
     <>
       {book.map((data) => {
@@ -85,13 +91,26 @@ const Book = ({ book }) => {
                       <h6 className="rating-text">{rating}</h6>
                     </h5>
                     <div className="d-flex flex-row justify-content-between">
-                      <a
-                        href="/favorites"
-                        className="btn btn-outline-danger btn-count fav-btn"
-                      >
-                        <GrFavorite />
-                      </a>
-                      <a href="/detail/:id" className="btn btn-primary buy-btn">
+                       {favoritesChecker(book.id) ? (
+                          <button
+                            href="/favorites"
+                            className="btn btn-danger btn-count fav-btn"
+                            onClick={() => removeFromFavorites(book.id)}
+                          >
+                            <GrFavorite />
+                          </button>
+                        ) : (
+                          <button
+                            href="/favorites"
+                            className="btn btn-outline-danger btn-count fav-btn"
+                            onClick={() => addToFavorites(book)}
+                          >
+                            <GrFavorite />
+                          </button>
+                        )}
+
+                      <a className="btn btn-primary buy-btn" 
+                      onClick={() => navigate(`/books/${book.id}`)}>
                         See Details
                       </a>
                     </div>

@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import "../../App";
-import { FaMagic } from "react-icons/fa";
-import { GiSpellBook } from "react-icons/gi";
 import axios from "axios";
-import Card from "../Book";
 import Book from "../Book";
-import Booklist from "./Booklist";
 
 const Home = () => {
   const [search, setSearch] = useState("");
   const [bookData, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  //const [loading, setLoading] = useState(false);
+
   const searchBook = (evt) => {
     if (evt.key === "Enter") {
       axios
@@ -25,8 +22,6 @@ const Home = () => {
             "&key=AIzaSyCLsjHheFJXHh4NkOpKTlfYOM8orIsHLNA" +
             "&maxResults=15"
         )
-        //.then((res) => console.log(res.data.items))
-        //.catch((err) => console.log(err));
         //.then((res) => setData(res.data))
         .then((res) => setData(res.data.items))
         .catch((err) => console.log(err));
@@ -41,6 +36,7 @@ const Home = () => {
     <>
       <div className="Home">
         <div className="card bg-dark text-white border-0 Header">
+          <img src="/images/bg.jpg" class="card-img-bg" alt="..." />
           <div className="card-img-overlay d-flex flex-column justify-content-center">
             <h5 className="card-title display-3 fw-bolder mb-0">
               NEW BOOK ARRIVALS
@@ -54,7 +50,7 @@ const Home = () => {
                 onChange={(e) => setSearch(e.target.value)}
                 onKeyPress={searchBook}
               />
-              <button type="button" className="btn btn-primary search-button">
+              <button type="button" className="btn btn-dark search-button">
                 Search
               </button>
             </div>
