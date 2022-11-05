@@ -99,9 +99,6 @@ const BookDetails = () => {
                     className="d-flex flex-row justify-content-end"
                     style={{ paddingRight: "10px" }}
                   >
-                    <button className="btn btn-outline-success">
-                      Add to Read
-                    </button>
                     {readChecker(book.id) ? (
                       <button
                         className="btn btn-outline-success"
